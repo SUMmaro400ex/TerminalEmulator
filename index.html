@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./index.js"></script>
+    <title>Document</title>
+</head>
+<body style="margin: 0 auto; align-items: center; height: 100vh; display: flex; justify-content: center; background: linear-gradient(135deg, rgba(0,122, 204,1) 0%, rgba(0,212,255,1) 100%);">
+    <script>
+        const terminalLines = [
+            {
+                path: '~/Jon/Skills',
+                input: 'ls',
+                results: ['React', 'JavaScript', 'GraphQL', 'Node', 'HTML', 'CSS', 'SCSS', 'Web-Components', 'Ruby', 'Swift', 'SwiftUI'],
+            },
+            {
+                path: '~/Jon/Skills',
+                input: 'cd ..',
+                results: [],
+            },
+            {
+                path: '~/Jon',
+                input: 'ls',
+                results: ['Skills', 'Interests', 'My-Work'],
+            },
+            {
+                path: '~/Jon',
+                input: 'cd Interests',
+                results: [],
+            },
+            {
+                path: '~/Jon/Interests',
+                input: 'ls',
+                results: ['Code', 'Baseball', 'Cars', 'Technology', 'Games']
+            },
+            {
+                path: '~/Jon/Interests',
+                input: 'cd ..',
+                results: [],
+            },
+            {
+                path: '~/Jon',
+                input: 'cd My-Work',
+                results: [],
+            },
+            {
+                path: '~/Jon/My-Work',
+                input: 'ls',
+                results: ['Breeze_Web', 'Go', 'CareCloud', 'Edukit', 'Wyncode'],
+            },
+            {
+                path: '~/Jon/My-Work',
+                input: 'mkdir ??',
+                results: [],
+            },
+        ];
+        document.addEventListener('DOMContentLoaded', () => window.insertTerminalEmulator({ querySelector: '#terminal', terminalLines, disableFontInsertion: false }));
+    </script>
+    <div id="terminal"></div>
+</body>
+</html>
