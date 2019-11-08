@@ -1,4 +1,4 @@
-window.insertTerminalEmulator = ({ querySelector, terminalLines, disableFontInsertion }) => {
+export const insertTerminalEmulator = ({ querySelector, terminalLines, disableFontInsertion }) => {
     if (!disableFontInsertion) {
         const style = document.createElement('link');
         style.setAttribute('href', 'https://fonts.googleapis.com/css?family=Inconsolata&display=swap')
@@ -85,6 +85,7 @@ window.insertTerminalEmulator = ({ querySelector, terminalLines, disableFontInse
                         background-color: rgb(43,43,43);
                         display: flex;
                         color: rgb(44 207 66);
+                        font-size: 18px !important;
                     }
                     .path {
                         background: rgba(0,122, 204,1);
@@ -113,6 +114,8 @@ window.insertTerminalEmulator = ({ querySelector, terminalLines, disableFontInse
                         grid-template-columns: repeat(7, 1fr);
                         color: rgba(0,122, 204,1);
                         color: white;
+                        font-size: 18px !important;
+                        text-align: left;
                     }
                     @media only screen and (max-width: 1000px) {
                         #resultsDiv {
@@ -150,8 +153,9 @@ window.insertTerminalEmulator = ({ querySelector, terminalLines, disableFontInse
             `;
         }
     }
-    window.customElements.define('line-typer', LineTyper);
-
+    if (!window.customElements.get('line-typer')) {
+        window.customElements.define('line-typer', LineTyper);
+    }
 
     class TerminalEmulator extends HTMLElement {
         constructor() {
@@ -273,6 +277,8 @@ window.insertTerminalEmulator = ({ querySelector, terminalLines, disableFontInse
             `;
         }
     }
-    window.customElements.define('terminal-emulator', TerminalEmulator);
+    if (!window.customElements.get('terminal-emulator')) {
+        window.customElements.define('terminal-emulator', TerminalEmulator);
+    }
     document.querySelector(querySelector).innerHTML = '<terminal-emulator></terminal-emulator>';
 }
